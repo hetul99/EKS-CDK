@@ -23,7 +23,7 @@ class PipelineStack(core.Stack):
         output=source_artifact,
         oauth_token=core.SecretValue.secrets_manager('CDK-EKS'),
         owner='hetul99',
-        repo='CDK-EKS-1',
+        repo='EKS-CDK',
         trigger=cpactions.GitHubTrigger.POLL),
 
       synth_action=pipelines.SimpleSynthAction(
