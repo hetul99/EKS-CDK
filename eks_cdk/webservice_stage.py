@@ -1,6 +1,6 @@
 from aws_cdk import core
 
-from .cdk_eks_1_stack import CdkeksStack
+from .eks_cdk_stack import CdkeksStack
 
 class WebServiceStage(core.Stage):
   def __init__(self, scope: core.Construct, id: str, **kwargs):
