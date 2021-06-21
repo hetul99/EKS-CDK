@@ -52,3 +52,6 @@ class CdkeksStack(core.Stack):
             endpoint_access=aws_eks.EndpointAccess.PUBLIC_AND_PRIVATE,
             version=aws_eks.KubernetesVersion.V1_18
         )
+        
+       # self.url_output = core.CfnOutput(self, 'Url',
+        #    value=eks_vpc.cidr)

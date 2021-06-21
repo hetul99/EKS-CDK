@@ -3,7 +3,7 @@ from aws_cdk import aws_codepipeline as codepipeline
 from aws_cdk import aws_codepipeline_actions as cpactions
 from aws_cdk import pipelines
 
-from .webservice_stage import WebServiceStage
+#from .webservice_stage import WebServiceStage
 
 APP_ACCOUNT = '128222158613'
 
@@ -21,7 +21,7 @@ class PipelineStack(core.Stack):
       source_action=cpactions.GitHubSourceAction(
         action_name='GitHub',
         output=source_artifact,
-        oauth_token=core.SecretValue.secrets_manager('EKS-CDK'),
+        oauth_token=core.SecretValue.secrets_manager('CDK-EKS'),
         owner='hetul99',
         repo='EKS-CDK',
         trigger=cpactions.GitHubTrigger.POLL),
@@ -33,8 +33,8 @@ class PipelineStack(core.Stack):
         #build_command='pytest unittests',
         synth_command='cdk synth'))
         
-    pre_prod_app = WebServiceStage(self, 'Pre-Prod', env={
-      'account': APP_ACCOUNT,
-      'region': 'us-west-2',
-    })
+    #pre_prod_app = WebServiceStage(self, 'Pre-Prod', env={
+     # 'account': APP_ACCOUNT,
+      #'region': 'us-west-2',
+  #  })
 
