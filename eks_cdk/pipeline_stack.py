@@ -3,7 +3,7 @@ from aws_cdk import aws_codepipeline as codepipeline
 from aws_cdk import aws_codepipeline_actions as cpactions
 from aws_cdk import pipelines
 
-#from .webservice_stage import WebServiceStage
+from .webservice_stage import WebServiceStage
 
 APP_ACCOUNT = '128222158613'
 
@@ -33,8 +33,8 @@ class PipelineStack(core.Stack):
         #build_command='pytest unittests',
         synth_command='cdk synth'))
         
-    #pre_prod_app = WebServiceStage(self, 'Pre-Prod', env={
-     # 'account': APP_ACCOUNT,
-      #'region': 'us-west-2',
-  #  })
+    pre_prod_app = WebServiceStage(self, 'Pre-Prod', env={
+      'account': APP_ACCOUNT,
+      'region': 'us-west-2',
+    })
 

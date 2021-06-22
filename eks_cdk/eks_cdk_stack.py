@@ -46,12 +46,12 @@ class CdkeksStack(core.Stack):
             vpc=eks_vpc,
             masters_role=bastion_role,
             default_capacity_type=aws_eks.DefaultCapacityType.NODEGROUP,
-            default_capacity_instance=aws_ec2.InstanceType("m5.large"),
+            default_capacity_instance=aws_ec2.InstanceType("t2.micro"),
             default_capacity=2,
             security_group=eks_security_group,
             endpoint_access=aws_eks.EndpointAccess.PUBLIC_AND_PRIVATE,
             version=aws_eks.KubernetesVersion.V1_18
         )
         
-       # self.url_output = core.CfnOutput(self, 'Url',
-        #    value=eks_vpc.cidr)
+        self.url_output = core.CfnOutput(self, 'CIDR',
+            value=eks_vpc.cidr)
